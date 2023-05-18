@@ -67,7 +67,7 @@ app.post("/run", async (req, res) => {
         const [filepath, inputFilePath] = files;
 
         job = await new Job({ language, filepath, inputFilePath }).save();
-        // console.log(job);
+         console.log("job id from index file",job);
 
         const jobId = job["_id"];
         addJobToQueue(jobId);
