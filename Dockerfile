@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -y build-essential
 # Production stage
 #
 FROM base AS production
-CMD ["npm", "index"]
+CMD ["node", "index"]
