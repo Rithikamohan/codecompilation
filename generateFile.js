@@ -28,7 +28,7 @@ const generateFile = async (language, code, input) => {
     const inputFileName = `${jobID}.txt`;
     const inputFilePath = path.join(inputFiles, inputFileName);
     await fs.writeFileSync(inputFilePath, input);
-
+console.log("in generate file");
     return [codeFilePath, inputFilePath];
 };
 
