@@ -8,13 +8,13 @@ const jobQueue = new Queue("job-queue");
 const WORKERS = 5;
 
 jobQueue.process(WORKERS, async ({ data }) => {
-    // console.log(data);
+    console.log("data in job queue",data);
     const { id: jobId } = data;
     const job = await Job.findById(jobId);
     if (job === undefined) {
         throw Error("Job not found");
     } else {
-        // console.log("Fetched Job: ", job);
+         console.log("Fetched Job: ", job);
         let output;
         try {
             job["startedAt"] = new Date();
@@ -44,7 +44,7 @@ jobQueue.process(WORKERS, async ({ data }) => {
 });
 
 jobQueue.on("failed", (error) => {
-    console.log(error.data.id, "failed", error.failedReason);
+    console.log("errorrrrrrrrrrrrrrr injobqueue",error.data.id, "failed", error.failedReason);
 });
 
 const addJobToQueue = async (jobId) => {
