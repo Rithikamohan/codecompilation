@@ -10,7 +10,8 @@ if (!fs.existsSync(outputPath)) {
 const executeCpp = ([filepath, inputFilePath]) => {
     const jobId = path.basename(filepath).split(".")[0];
     const outPath = path.join(outputPath, `${jobId}.out`);
-    // console.log(inputFilePath);
+     console.log(" input file path",inputFilePath);
+    console.log("file path",filepath);
     return new Promise((resolve, reject) => {
         exec(
             `gcc  ${filepath} -o ${outPath} && cd ${outputPath} && ${jobId}.out < ${inputFilePath}`,
