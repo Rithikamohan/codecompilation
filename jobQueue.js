@@ -20,6 +20,7 @@ jobQueue.process(WORKERS, async ({ data }) => {
             job["startedAt"] = new Date();
             job["status"] = "Running";
             if (job.language === "cpp") {
+                console.log("in job queue function call");
                 output = await executeCpp([job.filepath, job.inputFilePath]);
             } else {
                 output = await executePython([job.filepath, job.inputFilePath]);
